@@ -1,0 +1,8 @@
+# Serve everything from public/ so app/, vendor/, writable/ and .env are never web-reachable.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+<IfModule !mod_rewrite.c>
+    Require all denied
+</IfModule>
